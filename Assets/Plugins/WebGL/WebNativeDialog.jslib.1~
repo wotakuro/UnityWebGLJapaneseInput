@@ -1,0 +1,6 @@
+var JapaneseInputLib = {
+   Dialog: function (){
+   }
+};
+mergeInto(LibraryManager.library , JapaneseInputLib);
+
