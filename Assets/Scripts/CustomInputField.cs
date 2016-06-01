@@ -7,13 +7,18 @@ public class CustomInputField : UnityEngine.UI.InputField
 {
     public string dialogTitle = "Input Text";
 
-#if UNITY_WEBGL && !UNITY_EDITOR
+#if UNITY_WEBGL || true
 
     public override void OnSelect(BaseEventData eventData)
     {
         this.text = WebNativeDialog.OpenNativeStringDialog(dialogTitle, this.text);
-        this.text = "aa";
+        StartCoroutine(this.DelayInputDeactive());
+    }
+    private IEnumerator DelayInputDeactive()
+    {
+        yield return new WaitForEndOfFrame();
         this.DeactivateInputField();
+        EventSystem.current.SetSelectedGameObject(null);
     }
     
 #endif
