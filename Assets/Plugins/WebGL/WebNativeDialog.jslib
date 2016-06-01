@@ -1,6 +1,8 @@
 ﻿var WebNativeDialog = {
    NativeDialogPrompt:function (title , defaultValue){
-     var result = window.prompt( Pointer_stringify(title) , Pointer_stringify(defaultValue) );
+     defaultValue = Pointer_stringify(defaultValue);
+     title = Pointer_stringify(title);
+     var result = window.prompt( title , defaultValue );
      if( !result ){
        result = defaultValue;
      }
