@@ -1,7 +1,0 @@
-var WebNativeDialog = {
-   Prompt: function (title , defaultValue){
-     window.prompt( title , defaultValue );
-   }
-};
-mergeInto( LibraryManager.library , JapaneseInputLib );
-

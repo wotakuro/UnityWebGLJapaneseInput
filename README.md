@@ -1,4 +1,0 @@
-# UnityWebGLJapaneseInput
-WebGLで日本語入力ができない・コピペが出来ない問題を解決するサンプルです。
-
-JavascriptのWindow.prompt関数を呼び出すので名前入力中に画面が固まるなどの問題がありますが、解決策として利用ください。
