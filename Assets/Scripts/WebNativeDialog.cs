@@ -2,25 +2,22 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 
-public class WebNativeDialog : MonoBehaviour {
+public class WebNativeDialog {
     [DllImport("__Internal")]
     private static extern string NativeDialogPrompt(string title, string defaultValue);
 
-
-    public UnityEngine.UI.Text buttonText;
-
-	// Use this for initialization
-	void Start () {
-	}
-    public void OnClickButton()
+    /// <summary>
+    /// ネイティブの文字列入力のダイアログを出します
+    /// </summary>
+    /// <param name="title">ダイアログタイトル名</param>
+    /// <param name="defaultValue">デフォルト値</param>
+    /// <returns></returns>
+    public static string OpenNativeStringDialog(string title, string defaultValue)
     {
-        string name = NativeDialogPrompt("名前を入力してください", buttonText.text);
-        Debug.Log("入力された名前：" + name);
-        buttonText.text = name;
+#if UNITY_WEBGL && !UNITY_EDITOR
+        return NativeDialogPrompt(title, defaultValue);
+#else
+        return defaultValue;
+#endif
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
