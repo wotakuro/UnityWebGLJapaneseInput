@@ -7,7 +7,7 @@ public class CustomInputField : UnityEngine.UI.InputField
 {
     public string dialogTitle = "Input Text";
 
-#if UNITY_WEBGL || true
+#if UNITY_WEBGL && !UNITY_EDITOR
 
     public override void OnSelect(BaseEventData eventData)
     {
